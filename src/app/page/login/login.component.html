@@ -1,0 +1,21 @@
+<div class="login-page">
+    <div class="form">
+      <!-- <form class="register-form">
+        <input type="text" placeholder="name"/>
+        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="email address"/>
+        <button>create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form> -->
+      <form [formGroup]="loginForm" class="login-form">
+        <input type="text" formControlName="username" placeholder="username"/>
+        <p class="err" *ngIf="loginForm.controls.username.touched && loginForm.controls.username.errors!=null && loginForm.controls.username.errors.hasOwnProperty('required')">*This field is required</p>
+        <p class="err" *ngIf="loginForm.controls.username.touched && loginForm.controls.username.errors!=null && loginForm.controls.username.errors.hasOwnProperty('minlength')">*Min length is 4</p>
+        <input type="password" formControlName="password" placeholder="password"/>
+        <p class="err" *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors!=null && loginForm.controls.password.errors.hasOwnProperty('required')">*This field is required</p>
+        <p class="err" *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors!=null && loginForm.controls.password.errors.hasOwnProperty('minlength')">*Min length is 4</p>
+        <button (click)="login()" [disabled]="loginForm.status !== 'VALID'">login</button>
+        <p class="err message" *ngIf="errorMsg">{{ errorMsg }}</p>
+      </form>
+    </div>
+</div>

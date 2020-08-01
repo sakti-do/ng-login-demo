@@ -1,0 +1,25 @@
+<p>
+  <mat-toolbar>
+    <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+      <a [routerLink]="['/']"><mat-icon>home</mat-icon></a>
+    </button>
+    <button mat-raised-button color="accent" aria-label="Example icon button with a home icon">
+      <a [routerLink]="['/about']" >
+        About
+      </a>
+    </button>
+    <button mat-raised-button color="accent" aria-label="Example icon button with a home icon">
+      <a [routerLink]="['/profile']" >
+        Dashboard
+      </a>
+    </button>
+    <button mat-raised-button color="accent" aria-label="Example icon button with a home icon" *ngIf="userToken==''">
+      <a [routerLink]="['/login']" >
+        Login
+      </a>
+    </button>
+    <button mat-raised-button color="accent" aria-label="Example icon button with a home icon" *ngIf="userToken!==''">
+      <a href="javascript:void(0)" (click)="logout()">Logout</a>
+    </button>
+  </mat-toolbar>
+</p>
